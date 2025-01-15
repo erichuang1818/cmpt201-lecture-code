@@ -4,12 +4,11 @@
 #include <unistd.h>
 
 int main() {
-  char *message = "Hello World!\n";
-
-  for (int i = 0; i < strlen(message); i++) {
-    printf("%c", message[i]);
-    fflush(stdout);
+  int ret_val = fork();
+  for (int i = 0; i < 20; i++) {
+    printf("sleeping%d\n", ret_val);
     sleep(1);
   }
+  printf("DONE\n");
   return 0;
 }
